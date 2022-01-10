@@ -1,0 +1,16 @@
+logging:
+  level:
+    root: INFO
+    org.springframework.kafka: DEBUG
+
+spring:
+  cloud:
+    stream:
+      bindings:
+        myConsumer-in-0:
+          destination: kafka-workshop
+          group: myConsumer
+      kafka:
+        binder:
+          brokers: localhost:29092
+          auto-create-topics: false
