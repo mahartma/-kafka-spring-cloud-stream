@@ -1,7 +1,6 @@
 logging:
   level:
     root: INFO
-    org.springframework.kafka: DEBUG
 
 spring:
   cloud:
@@ -13,4 +12,13 @@ spring:
       kafka:
         binder:
           brokers: localhost:29092
-          auto-create-topics: false
+          auto-create-topics: true
+        streams:
+          binder:
+            configuration:
+              default.key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+              default.value.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+              commit.interval.ms: 1000
+
+
+
