@@ -19,10 +19,15 @@ public class KafkaWorkshopApplication {
     }
 
     @Bean
+    public Consumer<String> myConsumer() {
+        return (value) -> System.out.println("Consumer Received : " + value);
+    }
+
+    /*@Bean
     public Consumer<KStream<Object, String>> myConsumer() {
         return input -> input
                 .groupBy((key, value) -> value)
                 .count()
                 .toStream().foreach((key, value) -> LOG.info("Value: " + key + ", Count: " + value));
-    }
+    }*/
 }
